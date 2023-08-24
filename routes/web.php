@@ -1,5 +1,6 @@
 <?php
 
+use App\Jobs\UserJob;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $startTime = microtime(true);
+    UserJob::dispatch();
+    $endTime = microtime(true);
+    $timediff = $endTime - $startTime;
+    return "Halaman " . sprintf('%0.2f', $timediff) . "Detik";
 });
