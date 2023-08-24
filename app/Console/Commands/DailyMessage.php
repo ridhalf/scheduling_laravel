@@ -25,6 +25,6 @@ class DailyMessage extends Command
      */
     public function handle()
     {
-        echo 'THIS IS MY FIRST BASIC SCHEDULER';
+        info('Hello World in daily message');
     }
 }

@@ -30,7 +30,6 @@ class UserJob implements ShouldQueue
      */
     public function handle(): void
     {
-        sleep(3);
-        info('Hallo');
+        info('HELLO WORLD');
     }
 }

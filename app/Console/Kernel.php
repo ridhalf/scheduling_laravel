@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Jobs\UserJob;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -12,7 +13,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        $schedule->command('message:daily')->everyMinute()->appendOutputTo('scheduler.log');
+        // $schedule->command('message:daily')->everyFiveSeconds();
+        // $schedule->command('app:check-status-skema')->everyFiveSeconds();
+        $schedule->job(new UserJob)->everyFiveSeconds()->appendOutputTo('scheduler.log');
     }
 
     /**
